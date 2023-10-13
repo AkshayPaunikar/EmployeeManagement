@@ -1,0 +1,10 @@
+.divstyle {
+    border: 10px solid white;
+    display: table-cell;
+    padding: 10px;
+    background-color: lightblue;
+}
+
+h3{
+    color: rebeccapurple;
+}
