@@ -32,7 +32,7 @@
         <div>@employee.Name</div>
         <br />
         <div>
-            <a href="#">View</a>
+            <a asp-controller="home" asp-action="details" asp-route-id="@employee.Id">View</a>
             <a href="#">Edit</a>
             <a href="#">Delete</a>
         </div>
