@@ -8,3 +8,8 @@
 h3{
     color: rebeccapurple;
 }
+
+.imageThumbnail {
+    height: 200px;
+    width: auto;
+}

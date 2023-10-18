@@ -1,5 +1,6 @@
 using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics;
 
@@ -7,8 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 //builder.Services.AddRazorPages();
+builder.Services.AddDbContextPool<AppDbContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeDBConnection")));
 builder.Services.AddMvc(options => options.EnableEndpointRouting = false).AddXmlSerializerFormatters();
-builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+//builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 
 var app = builder.Build();
 

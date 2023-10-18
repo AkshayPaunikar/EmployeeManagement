@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EmployeeManagement.Models;
+using System.ComponentModel.DataAnnotations;
 
-namespace EmployeeManagement.Models
+namespace EmployeeManagement.ViewModels
 {
-    public class Employee
+    public class EmployeeCreateViewModel
     {
-        public int Id { get; set; }
         [Required]
         [MaxLength(50, ErrorMessage = "Max Length should be 50 characters")]
         public string Name { get; set; }
@@ -13,6 +13,6 @@ namespace EmployeeManagement.Models
         public string Email { get; set; }
         [Required]
         public Dept? Department { get; set; }
-        public string? PhotoPath { get; set; }
+        public IFormFile Photo { get; set; }
     }
 }
