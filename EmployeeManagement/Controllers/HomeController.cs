@@ -1,10 +1,12 @@
 ﻿using EmployeeManagement.Models;
 using EmployeeManagement.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting.Internal;
 
 namespace EmployeeManagement.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -15,6 +17,7 @@ namespace EmployeeManagement.Controllers
             _employeeRepository = employeeRepository;
             this.hostingEnvironment = hostingEnvironment;
         }
+        [AllowAnonymous]
         public ViewResult Index()
         {
             var model = _employeeRepository.GetAllEmployee();
