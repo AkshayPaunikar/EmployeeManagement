@@ -1,9 +1,26 @@
-﻿<h3>Error</h3>
+﻿@if (ViewBag.Title == null)
+{
+    <h3>Error</h3>
+    <h4>An error occured please contact support</h4>
 
-<div class="alert alert-danger">
-    <p>@ViewBag.Path</p>
-</div>
 
-<div class="alert alert-danger">
-    <p>@ViewBag.Trace</p>
-</div>
+
+    <div class="alert alert-danger">
+        <p>@ViewBag.Path</p>
+    </div>
+
+    <div class="alert alert-danger">
+        <p>@ViewBag.Trace</p>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        <p>@ViewBag.Title</p>
+    </div>
+
+    <div class="alert alert-danger">
+        <p>@ViewBag.Message</p>
+    </div>
+}
+

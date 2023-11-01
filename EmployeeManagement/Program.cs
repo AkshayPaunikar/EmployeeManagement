@@ -41,6 +41,13 @@ builder.Services.AddMvc(config =>
 });
 //builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("DeleteRolePolicy",
+        policy => policy.RequireClaim("Delete Role")
+                        .RequireClaim("Create Role"));
+});
+
 builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 
 var app = builder.Build();
